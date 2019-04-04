@@ -9,12 +9,12 @@ chrome.tabs.executeScript({
 
 
 document.getElementById("submit").addEventListener('click', function () {
-  let newCard = {};
-  newCard[document.getElementById("key").value] = document.getElementById("value").value;
+  let chippyKey = document.getElementById("key").value;
+  let chippyVal = document.getElementById("value").value;
   // console.log(newCard);
 
   // Insert into Storage: assuming this works right now. TODO!
-  localStorage.setItem(document.getElementById("key").value, document.getElementById("value").value);
+  localStorage.setItem(chippyKey, chippyVal);
 
   //chrome.storage SET of (key, values)
   // chrome.storage.sync.set(newCard, function () {
