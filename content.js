@@ -1,0 +1,1 @@
+// alert("Hello from this chrome extension!");
