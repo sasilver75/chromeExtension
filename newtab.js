@@ -14,7 +14,10 @@ $(document).ready(function () {
   // Make a request to the quotes endpoint and populate the DOM
   axios.get('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
     .then(function (response) {
-      console.log(response.data);
+      // console.log(response.data[0]);
+      console.log(response.data[0].content);
+      console.log(response.data[0].title);
+
     });
 });
 
@@ -23,8 +26,11 @@ $(document).ready(function () {
 
 function getRandomCard() {
   const arrOfKeys = [];
-  for (let keys in localStorage) {
-    arrOfKeys.push(keys)
+  const defKeys = ["setItem", "getItem", "removeItem", "length", "key", "clear"]
+  for (let key in localStorage) {
+    if (!defKeys.includes(key)) {
+      arrOfKeys.push(key)
+    }
   }
 
   function randomizer(array) {
