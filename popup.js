@@ -13,12 +13,13 @@ document.getElementById("submit").addEventListener('click', function () {
   newCard[document.getElementById("key").value] = document.getElementById("value").value;
   // console.log(newCard);
 
-  // Insert into Storage
+  // Insert into Storage: assuming this works right now. TODO!
+  localStorage.setItem(document.getElementById("key").value, document.getElementById("value").value);
 
   //chrome.storage SET of (key, values)
-  chrome.storage.sync.set(newCard, function () {
-    console.log("Card added to your deck!");
-  });
+  // chrome.storage.sync.set(newCard, function () {
+  //   console.log("Card added to your deck!");
+  // });
 
   // Update Button Text
   document.getElementById("submit").style.backgroundColor = "green";
