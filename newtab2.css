@@ -69,14 +69,21 @@ body {
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   color: black;
-  font-size: 24px;
+  font-size: 36px;
+  margin: 0px 5px;
   overflow-y: scroll;
+}
+
+#frontLabel,
+#backLabel {
+  font-size: 24px;
 }
 
 /* Style the back side */
 .flip-card-back {
   transform: rotateY(180deg);
   font-size: 24px;
+  margin: 0px 5px;
   overflow-y: scroll;
 }
 

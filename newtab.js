@@ -9,15 +9,31 @@ $(document).ready(function () {
     getRandomCard();
   });
 
+  // Helper function for random quote
+  function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+  }
   //Get a random quote and time and replace in the DOM
-
   // Make a request to the quotes endpoint and populate the DOM
   axios.get('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
     .then(function (response) {
       // console.log(response.data[0]);
-      console.log(response.data[0].content);
-      console.log(response.data[0].title);
+      let quoteText = decodeHtml(response.data[0].content);
+      let quoteText1 = quoteText.substring(3);
+      let quoteText2 = quoteText1.substring(0, quoteText1.length - 5);
+      console.log(quoteText);
+      let quoteAuthor = decodeHtml(response.data[0].title);
+      let currentTime = new Date().toLocaleTimeString();
 
+      let markdown = `
+      <div id="time">${currentTime}</div>
+      <p id="greeting"><span id="quoteText">${quoteText2}</span><br>
+      <span id="quoteAuthor">-
+        ${quoteAuthor}</span></p>
+      `
+      document.querySelector('#extraInfo').innerHTML = markdown;
     });
 });
 
@@ -47,13 +63,13 @@ function getRandomCard() {
   
           <div id="card">
             <!-- <h1 class="promptTitle">Prompt</h1> -->
-            <p id="frontLabel">Front</p>
+            <p id="frontLabel">Hover to Flip</p>
             <div id="promptText">${retrievedKey}</div>
           </div>
         </div>
         <div class="flip-card-back">
           <!-- <h1 class="answerTitle">Answer</h1> -->
-          <p id="backLabel">Back</p>
+          <p id="backLabel">Description</p>
           <p class="answerText">${retrievedValue}</p>
         </div>
       </div>
