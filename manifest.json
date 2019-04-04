@@ -7,12 +7,21 @@
     "matches": [
       "<all_urls>"
     ],
-    "js": ["jquery-3.3.1.min.js", "content.js"]
+    "js": ["jquery-3.3.1.min.js"]
   }],
   "browser_action": {
-    "default_icon": "brain_orange.png"
+    "default_icon": "brain_orange.png",
+    "default_popup": "popup.html"
   },
   "background": {
     "scripts": ["background.js"]
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
   }
+
 }
