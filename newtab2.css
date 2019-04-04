@@ -25,12 +25,13 @@ body {
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
-  width: 80%;
-  height: 60%;
+  width: 70%;
+  height: 50%;
   /* border: 1px solid #f1f1f1; */
   perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
   font-family: sans-serif;
+
 }
 
 /* This container is needed to position the front and back side */
@@ -139,9 +140,13 @@ body {
 #extraInfo {
   color: white;
   text-align: center;
-  border: 4px groove white;
+  border: 2px groove white;
   padding: 6px;
+  width: 700px;
+  height: 150px;
   background: rgba(255, 255, 255, .15);
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 0.15);
+
 }
 
 #extraInfo #time {
@@ -155,9 +160,17 @@ body {
   margin: 0px;
 }
 
+
+
+
+
+
 #quoteAuthor {
   font-style: italic;
   color: red;
+  font-size: 24px;
+  margin: 0px;
+
 }
 
 #frontLabel {

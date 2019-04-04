@@ -30,8 +30,8 @@ $(document).ready(function () {
       let markdown = `
       <div id="time">${currentTime}</div>
       <p id="greeting"><span id="quoteText">${quoteText2}</span><br>
-      <span id="quoteAuthor">-
-        ${quoteAuthor}</span></p>
+      <p id="quoteAuthor">-
+        ${quoteAuthor}</p></p>
       `
       document.querySelector('#extraInfo').innerHTML = markdown;
     });
